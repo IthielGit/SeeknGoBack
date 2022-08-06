@@ -26,7 +26,7 @@ public class UserController {
 	private long save(@RequestBody User user) {
 //		System.out.println(user.getName());
 		userService.saveUser(user);
-		return user.getId();
+		return user.getIdUser();
 	}
 	
 	@RequestMapping("/user/{id}")

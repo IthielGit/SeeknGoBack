@@ -1,6 +1,7 @@
 package com.seekngo.entities;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.Collection;
 
 import javax.persistence.Entity;
@@ -15,29 +16,23 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
-public class Prestation implements Serializable {
+public class FactureAbnmt implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idPrestation;
-	private String titrePrestation;
-	private String descPrestation;
-	private String adressePrestation;
-	private int notePrestation;
+	private Long idPaiementCommission;
+	@OneToMany(mappedBy = "factureAbnmt")
+	private Collection<TicketResa>ticketResas;
 	@ManyToOne
-	@JoinColumn(name="ID_RESERVATION")
-	private TicketResa ticketResa;
-	@ManyToOne
-	@JoinColumn(name="PROVINCE_NAME")
-	private Province province;
-	@ManyToOne
-	@JoinColumn(name="CATEGORY_NAME")
-	private CategoriePrestation categoriePrestation;
-	@OneToMany(mappedBy = "prestation")
-	private Collection<Planning>plannings;
-	@ManyToOne
-	@JoinColumn(name="ID_ACTIVITY_OWNER")
+	@JoinColumn(name="ID_PARTENAIRE")
 	private Partenaire partenaire;
+	
+	
+	private Date paiementDate;
+	private double prixTicket;
+	private double commisionRate;
+	private double netaPayer;
+	
+	
 }

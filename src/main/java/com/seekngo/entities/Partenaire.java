@@ -23,6 +23,8 @@ public class Partenaire extends User{
 	private Collection<TicketResa>ticketResas;
 	@OneToMany(mappedBy = "partenaire")
 	private Collection<Prestation>prestations;
+	@OneToMany(mappedBy = "partenaire")
+	private Collection<FactureAbnmt>factureAbnmts;
 	
 	//manually generated (not using lombok in this constructor)
 	public Partenaire(Long id, String email, String numTel, String adresse, String password, String numNif,
@@ -31,7 +33,6 @@ public class Partenaire extends User{
 		this.numNif = numNif;
 		this.numStat = numStat;
 		this.numRcs = numRcs;
-		this.ticketResas = ticketResas;
 		this.prestations = prestations;
 	}
 	

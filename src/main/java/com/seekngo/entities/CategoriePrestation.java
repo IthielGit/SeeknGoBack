@@ -11,6 +11,5 @@ import javax.persistence.Id;
 public class CategoriePrestation implements Serializable{
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idCategory;
+	private String  CategoryName;
 }
