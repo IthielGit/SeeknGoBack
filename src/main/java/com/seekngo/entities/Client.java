@@ -9,7 +9,6 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -28,7 +27,7 @@ public class Client extends User{
 	private Collection<TicketResa>ticketResas;
 	
 	
-	//manually generated (not using lombok in this constructor : Ithiel)
+	//manually generated (not using lombok in this constructor)
 	public Client(Long id, String email, String numTel, String adresse, String password, String name, String prenom,
 			Collection<TicketResa> ticketResas) {
 		super(id, email, numTel, adresse, password);

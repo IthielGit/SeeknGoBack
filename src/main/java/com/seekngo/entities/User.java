@@ -25,10 +25,9 @@ import lombok.AllArgsConstructor;
 discriminatorType = DiscriminatorType.STRING,
 length =15 )
 public class User implements Serializable{
-	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long idUser;
 	@Column(length = 30)
 	private String email;
 	@Column(length = 15)
