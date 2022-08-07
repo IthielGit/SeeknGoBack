@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
+import org.apache.el.parser.AstFalse;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -24,16 +26,16 @@ import lombok.AllArgsConstructor;
 @DiscriminatorColumn(name = "userType",
 discriminatorType = DiscriminatorType.STRING,
 length =15 )
-public class User implements Serializable{
+public abstract class User implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idUser;
-	@Column(length = 30)
+	@Column(length = 30, unique = true, nullable = false)
 	private String email;
-	@Column(length = 15)
+	@Column(length = 15,nullable = true)
 	private String numTel;
-	@Column(length = 30)
+	@Column(length = 30,nullable = true)
 	private String adresse;
-	@Column(length = 15)
+	@Column(length = 15,nullable = false)
 	private String password;
 }

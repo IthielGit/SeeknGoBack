@@ -1,13 +1,16 @@
 package com.seekngo.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Data @AllArgsConstructor @NoArgsConstructor
+@Table(name = "CategoriePrestation")
 public class CategoriePrestation implements Serializable{
 
 	@Id

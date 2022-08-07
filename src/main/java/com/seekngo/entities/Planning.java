@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.Collection;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,15 +25,21 @@ public class Planning implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idPlanning;
+	@Column(length = 30, nullable = true)
 	private String titrePlanning;
+	@Column(length = 30, nullable = true)
 	private String tarifPlanning;
+	@Column(length = 30, nullable = true)
 	private String uniteDeComptage;
+	@Column(length = 30, nullable = true)
 	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date datePlanning;
+	@Column(nullable = true)
 	@OneToMany(mappedBy = "planning")
 	private Collection<HeureDispo>heureDispos;
 	
 	@ManyToOne
+	@Column(length = 30, nullable = true)
 	@JoinColumn(name="ID_PRESTATION")
 	private Prestation prestation;
 }

@@ -1,9 +1,9 @@
 package com.seekngo.repository;
 
-import com.seekngo.entities.Partenaire;
+import com.seekngo.entities.Admin;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PartenaireRepository extends JpaRepository<Partenaire,Long> {
+public interface AdminRepository extends JpaRepository<Admin, Long> {
 }
