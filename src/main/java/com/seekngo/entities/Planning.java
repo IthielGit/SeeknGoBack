@@ -39,7 +39,6 @@ public class Planning implements Serializable{
 	private Collection<HeureDispo>heureDispos;
 	
 	@ManyToOne
-	@Column(length = 30, nullable = true)
-	@JoinColumn(name="ID_PRESTATION")
+	@JoinColumn(name="ID_PRESTATION",nullable = true)
 	private Prestation prestation;
 }

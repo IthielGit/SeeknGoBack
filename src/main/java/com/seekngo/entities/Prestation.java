@@ -31,23 +31,24 @@ public class Prestation implements Serializable {
 	private String adressePrestation;
 	@Column(length = 30, nullable = true)
 	private int notePrestation;
-	@Column(length = 30, nullable = true)
+
 	@ManyToOne
 	@JoinColumn(name="ID_RESERVATION")
 	private TicketResa ticketResa;
 	
 	@ManyToOne 
-	@JoinColumn(name="PROVINCE_NAME") @Column(length = 30, nullable = true)
+	@JoinColumn(name="PROVINCE_NAME", nullable = true)
 	private Province province;
-	@Column(length = 30, nullable = true)
+	
 	@ManyToOne
-	@JoinColumn(name="CATEGORY_NAME")
+	@JoinColumn(name="CATEGORY_NAME", nullable = true)
 	private CategoriePrestation categoriePrestation;
+	
 	@Column(length = 30, nullable = true)
 	@OneToMany(mappedBy = "prestation")
 	private Collection<Planning>plannings;
-	@Column(length = 30, nullable = true)
+
 	@ManyToOne
-	@JoinColumn(name="ID_ACTIVITY_OWNER")
+	@JoinColumn(name="ID_ACTIVITY_OWNER", nullable = true)
 	private Partenaire partenaire;
 }

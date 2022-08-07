@@ -15,7 +15,6 @@ public class HeureDispo implements Serializable{
 	@Id
 	private String heure;
 	@ManyToOne
-	@JoinColumn(name="ID_PLANNING")
-	@Column(length = 30, nullable = true)
+	@JoinColumn(name="ID_PLANNING",nullable = true )
 	private Planning planning;
 }

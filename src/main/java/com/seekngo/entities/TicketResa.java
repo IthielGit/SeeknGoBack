@@ -31,14 +31,14 @@ public class TicketResa implements Serializable {
 	
 	
 	@ManyToOne
-	@JoinColumn(name = "ID_CLIENT")
+	@JoinColumn(name = "ID_CLIENT", nullable = true)
 	private Client client;
 	@ManyToOne
-	@JoinColumn(name = "ID_PARTENAIRE")
+	@JoinColumn(name = "ID_PARTENAIRE", nullable = true)
 	private Partenaire partenaire;
 	
 	@ManyToOne
-	@JoinColumn(name="ID_FACTURE")
+	@JoinColumn(name="ID_FACTURE", nullable = true)
 	private FactureAbnmt factureAbnmt;
 	
 	

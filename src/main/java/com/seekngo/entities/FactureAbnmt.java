@@ -32,8 +32,7 @@ public class FactureAbnmt implements Serializable{
 	@OneToMany(mappedBy = "factureAbnmt")
 	private Collection<TicketResa>ticketResas;
 	@ManyToOne
-	@JoinColumn(name="ID_PARTENAIRE")
-	@Column(length = 30, nullable = true)
+	@JoinColumn(name="ID_PARTENAIRE", nullable = true)
 	private Partenaire partenaire;
 	
 	
