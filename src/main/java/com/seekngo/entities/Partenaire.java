@@ -11,10 +11,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+
+
+
 @Entity
+@Data @NoArgsConstructor @AllArgsConstructor
 @DiscriminatorValue("Partenaire")
 public class Partenaire extends User{
 	@Column(length = 30, nullable = true)
@@ -33,17 +34,22 @@ public class Partenaire extends User{
 	@OneToMany(mappedBy = "partenaire")
 	private Collection<FactureAbnmt>factureAbnmts;
 	
-	//manually generated (not using lombok in this constructor)
-	public Partenaire(Long id, String email, String numTel, String adresse, String password, String numNif,
-			String numStat, String numRcs, Collection<TicketResa> ticketResas, Collection<Prestation> prestations) {
-		super(id, email, numTel, adresse, password);
+	
+	public Partenaire(Long idUser, String email, String password, String numTel, String adresse, String numNif,
+			String numStat, String numRcs, Collection<TicketResa> ticketResas, Collection<Prestation> prestations,
+			Collection<FactureAbnmt> factureAbnmts) {
+		super(idUser, email, password, numTel, adresse);
 		this.numNif = numNif;
 		this.numStat = numStat;
 		this.numRcs = numRcs;
+		this.ticketResas = ticketResas;
 		this.prestations = prestations;
+		this.factureAbnmts = factureAbnmts;
 	}
-	
-	
-	
-	
+
 }
+	
+	
+	
+	
+

@@ -30,12 +30,12 @@ public abstract class User implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idUser;
-	@Column(length = 30, unique = true, nullable = false)
+	@Column(length = 30, unique = true, nullable = true)
 	private String email;
+	@Column(length = 15,nullable = true)
+	private String password;
 	@Column(length = 15,nullable = true)
 	private String numTel;
 	@Column(length = 30,nullable = true)
 	private String adresse;
-	@Column(length = 15,nullable = false)
-	private String password;
 }

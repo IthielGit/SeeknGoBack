@@ -8,33 +8,82 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+
 @Entity
 @DiscriminatorValue("Client")
 public class Client extends User{
-	@Column(length = 30, nullable = false)
+	@Column(length = 30, nullable =true)
 	private String nom;
-	@Column(length = 30, nullable = false)
+	@Column(length = 30, nullable = true)
 	private String prenom;
 	@Column(nullable = true)
 	@OneToMany(mappedBy = "client",fetch = FetchType.LAZY)
 	private Collection<TicketResa>ticketResas;
 	
 	
-	//manually generated (not using lombok in this constructor)
-	public Client(Long id, String email, String numTel, String adresse, String password, String nom, String prenom,
-			Collection<TicketResa> ticketResas) {
-		super(id, email, numTel, adresse, password);
+	
+	
+	public Client(String nom, String prenom, Collection<TicketResa> ticketResas) {
+		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.ticketResas = ticketResas;
-
 	}
+
+
+
+
+	public String getNom() {
+		return nom;
+	}
+
+
+
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+
+
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+
+
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
+
+
+
+	public Collection<TicketResa> getTicketResas() {
+		return ticketResas;
+	}
+
+
+
+
+	public void setTicketResas(Collection<TicketResa> ticketResas) {
+		this.ticketResas = ticketResas;
+	}
+
+
+
+
+	public Client(Long idUser, String email, String password, String numTel, String adresse, String nom, String prenom,
+			Collection<TicketResa> ticketResas) {
+		super(idUser, email, password, numTel, adresse);
+		this.nom = nom;
+		this.prenom = prenom;
+		this.ticketResas = ticketResas;
+	}
+	
+
 }
