@@ -33,12 +33,10 @@ public class Partenaire extends User{
 	@Column(nullable = true)
 	@OneToMany(mappedBy = "partenaire")
 	private Collection<FactureAbnmt>factureAbnmts;
-	
-	
-	public Partenaire(Long idUser, String email, String password, String numTel, String adresse, String numNif,
-			String numStat, String numRcs, Collection<TicketResa> ticketResas, Collection<Prestation> prestations,
-			Collection<FactureAbnmt> factureAbnmts) {
-		super(idUser, email, password, numTel, adresse);
+	public Partenaire(Long idUser, String email, String password, String numTel, String adresse, Authority authority,
+			String numNif, String numStat, String numRcs, Collection<TicketResa> ticketResas,
+			Collection<Prestation> prestations, Collection<FactureAbnmt> factureAbnmts) {
+		super(idUser, email, password, numTel, adresse, authority);
 		this.numNif = numNif;
 		this.numStat = numStat;
 		this.numRcs = numRcs;

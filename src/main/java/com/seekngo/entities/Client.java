@@ -70,9 +70,9 @@ public class Client extends User{
 
 
 
-	public Client(Long idUser, String email, String password, String numTel, String adresse, String nom, String prenom,
-			Collection<TicketResa> ticketResas) {
-		super(idUser, email, password, numTel, adresse);
+	public Client(Long idUser, String email, String password, String numTel, String adresse, Authority authority,
+			String nom, String prenom, Collection<TicketResa> ticketResas) {
+		super(idUser, email, password, numTel, adresse, authority);
 		this.nom = nom;
 		this.prenom = prenom;
 		this.ticketResas = ticketResas;

@@ -3,6 +3,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.seekngo.entities.Admin;
 import com.seekngo.entities.Client;
@@ -19,6 +20,7 @@ public class SeeknGoBackApplication implements CommandLineRunner {
 	@Autowired
 	private AdminRepository adminRepository;
 	
+	
 	public static void main(String[] args) {
 		SpringApplication.run(SeeknGoBackApplication.class, args);
 	}
@@ -27,11 +29,11 @@ public class SeeknGoBackApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 //		User admiUser2 = userRepository.save(
-//				new Admin(null, "razaka@gmail.com", "passe", "03244", "Lot AZ 12", "CEO"));
+//				new Admin(null, "razaka@gmail.com", "passe", "03244", "Lot AZ 12", null, "CEO"));
 //		User clienUser3 = userRepository.save(
-//				new Client(null, "rabe@gmail.com", "passe", "0000012", "Lot 1235", "RAndria", "Njaka", null));
+//				new Client(null, "rabe@gmail.com", "passe", "0000012", "Lot 1235", null, "RAndria", "Njaka", null));
 //		User partnerUser4  = userRepository.save(
-//				new Partenaire(null, "partner@gmail.com", "passe", "032", "Lot 415", "nif 000", "stat000", "rcs 000", null, null, null));
+//				new Partenaire(null, "partner@gmail.com", "passe", "032", "Lot 415", null, "nif 000", "stat000", "rcs 000", null, null, null));
 	}
 
 }

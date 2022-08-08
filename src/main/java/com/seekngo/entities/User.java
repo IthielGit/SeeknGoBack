@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import org.apache.el.parser.AstFalse;
 
@@ -26,7 +28,7 @@ import lombok.AllArgsConstructor;
 @DiscriminatorColumn(name = "userType",
 discriminatorType = DiscriminatorType.STRING,
 length =15 )
-public abstract class User{
+public class User{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idUser;
@@ -38,4 +40,8 @@ public abstract class User{
 	private String numTel;
 	@Column(length = 30,nullable = true)
 	private String adresse;
+	
+	@OneToOne
+	@JoinColumn(name="authority_id")
+	private Authority authority;
 }

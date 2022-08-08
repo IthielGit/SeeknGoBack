@@ -17,14 +17,14 @@ import lombok.NoArgsConstructor;
 @DiscriminatorValue("Admin")
 public class Admin extends User {
 
-	@Column(length = 10,nullable = true)
-    private String poste;
-
-
-	public Admin(Long idUser, String email, String password, String numTel, String adresse, String poste) {
-		super(idUser, email, password, numTel, adresse);
+	public Admin(Long idUser, String email, String password, String numTel, String adresse, Authority authority,
+			String poste) {
+		super(idUser, email, password, numTel, adresse, authority);
 		this.poste = poste;
 	}
+
+	@Column(length = 10,nullable = true)
+    private String poste;
 
 
 }
