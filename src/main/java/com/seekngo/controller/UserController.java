@@ -13,12 +13,13 @@ import com.seekngo.service.UserService;
 
 
 @RestController
+@RequestMapping("/api")
 public class UserController {
 	@Autowired
 	private UserService userService; 
 	
-	@GetMapping("/list")
-	public Iterable<User> getUser() {
+	@GetMapping("/userList")
+	public Iterable<User> getUser(){
 		return userService.listAll();
 	}
 	

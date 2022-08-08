@@ -26,7 +26,7 @@ import lombok.AllArgsConstructor;
 @DiscriminatorColumn(name = "userType",
 discriminatorType = DiscriminatorType.STRING,
 length =15 )
-public abstract class User implements Serializable{
+public abstract class User{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idUser;

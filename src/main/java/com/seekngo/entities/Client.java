@@ -8,10 +8,15 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 
 
 
 @Entity
+@Data @NoArgsConstructor @AllArgsConstructor
 @DiscriminatorValue("Client")
 public class Client extends User{
 	@Column(length = 30, nullable =true)
@@ -23,18 +28,6 @@ public class Client extends User{
 	private Collection<TicketResa>ticketResas;
 	
 	
-	
-	
-	public Client(String nom, String prenom, Collection<TicketResa> ticketResas) {
-		super();
-		this.nom = nom;
-		this.prenom = prenom;
-		this.ticketResas = ticketResas;
-	}
-
-
-
-
 	public String getNom() {
 		return nom;
 	}
