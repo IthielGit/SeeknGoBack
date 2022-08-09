@@ -1,9 +1,14 @@
 package com.seekngo;
+import java.util.logging.LogManager;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.seekngo.entities.Admin;
 import com.seekngo.entities.Client;
@@ -25,6 +30,8 @@ public class SeeknGoBackApplication implements CommandLineRunner {
 		SpringApplication.run(SeeknGoBackApplication.class, args);
 	}
 
+	
+	
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
@@ -35,5 +42,6 @@ public class SeeknGoBackApplication implements CommandLineRunner {
 //		User partnerUser4  = userRepository.save(
 //				new Partenaire(null, "partner@gmail.com", "passe", "032", "Lot 415", null, "nif 000", "stat000", "rcs 000", null, null, null));
 	}
-
+	
+	
 }

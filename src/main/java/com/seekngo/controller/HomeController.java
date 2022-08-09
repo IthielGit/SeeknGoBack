@@ -9,6 +9,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +20,9 @@ import com.seekngo.entities.User;
 import com.seekngo.model.UserModel;
 import com.seekngo.repository.UserRepository;
 
+
+
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class HomeController {
 
@@ -66,7 +70,7 @@ public class HomeController {
 			SecurityContextHolder.getContext().setAuthentication(authentication);
 
 		} catch (BadCredentialsException e) {
-			throw new Exception("Identifiant invalide");
+			throw new Exception("Identifiants incorrects");
 		}
 		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 	}

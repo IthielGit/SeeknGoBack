@@ -26,11 +26,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 		.csrf().disable()
 		.authorizeHttpRequests()
-		.antMatchers("/login","/register").permitAll()
-		.antMatchers("/dashboard").hasAuthority("READ")
-		.antMatchers("/profile").hasAuthority("WRITE")
-		.and()
-		.formLogin()
+		.antMatchers("/login","/register","api/userlist").permitAll()
+		.antMatchers("/dashboard").hasAuthority("ADMIN")
+		.antMatchers("/profile").hasAuthority("PARTENAIRE")
+		.antMatchers("/profile").hasAuthority("CLIENT")
 		.and()
 		.httpBasic();
 	}
@@ -43,8 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		/*USING USERDETAILS SERVICE
 		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());*/
 		
-		auth.authenticationProvider(authenticationProvider);
-		
+		auth.authenticationProvider(authenticationProvider);		
 	}
 	
 	@Bean

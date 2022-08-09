@@ -1,5 +1,6 @@
 package com.seekngo.controller;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,14 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.seekngo.entities.User;
 import com.seekngo.service.UserService;
 
-
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api")
 public class UserController {
 	@Autowired
 	private UserService userService; 
 	
-	@GetMapping("/userList")
+	@GetMapping("/userlist")
 	public Iterable<User> getUser(){
 		return userService.listAll();
 	}

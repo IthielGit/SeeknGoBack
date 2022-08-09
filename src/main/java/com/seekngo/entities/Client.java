@@ -69,7 +69,7 @@ public class Client extends User{
 
 
 
-
+	//no use of lombok
 	public Client(Long idUser, String email, String password, String numTel, String adresse, Authority authority,
 			String nom, String prenom, Collection<TicketResa> ticketResas) {
 		super(idUser, email, password, numTel, adresse, authority);
