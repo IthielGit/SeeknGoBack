@@ -1,6 +1,5 @@
 package com.seekngo.entities;
 
-import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
@@ -25,6 +24,5 @@ public class Admin extends User {
 
 	@Column(length = 10,nullable = true)
     private String poste;
-
 
 }

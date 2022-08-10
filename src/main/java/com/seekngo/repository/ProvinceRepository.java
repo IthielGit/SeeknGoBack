@@ -1,5 +1,8 @@
 package com.seekngo.repository;
 
+import org.springframework.data.repository.CrudRepository;
 
-public interface ProvinceRepository {
+import com.seekngo.entities.Province;
+
+public interface ProvinceRepository extends CrudRepository<Province, Long> {
 }

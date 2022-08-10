@@ -21,18 +21,23 @@ public class TicketResa implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idTicketResa;
+	
 	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date creationTicketDate;
-	private String statutTicket;
-	private String statutPaiemenCommission;
-	private double prixTotal;
-	@OneToMany(mappedBy = "ticketResa")	
-	private Collection<Prestation>prestations;
 	
+	private String statutTicket;
+	
+	private String statutPaiemenCommission;
+	
+	private double prixTotal;
+	
+	@OneToMany(mappedBy = "ticketResa")	
+	private Collection<Prestation> prestations;
 	
 	@ManyToOne
 	@JoinColumn(name = "ID_CLIENT", nullable = true)
 	private Client client;
+	
 	@ManyToOne
 	@JoinColumn(name = "ID_PARTENAIRE", nullable = true)
 	private Partenaire partenaire;

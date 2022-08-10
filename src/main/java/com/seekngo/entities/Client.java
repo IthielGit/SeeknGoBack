@@ -16,58 +16,44 @@ import lombok.NoArgsConstructor;
 
 
 @Entity
-@Data @NoArgsConstructor @AllArgsConstructor
+@Data 
+@NoArgsConstructor 
+@AllArgsConstructor
 @DiscriminatorValue("Client")
 public class Client extends User{
 	@Column(length = 30, nullable =true)
 	private String nom;
+	
 	@Column(length = 30, nullable = true)
 	private String prenom;
+	
 	@Column(nullable = true)
 	@OneToMany(mappedBy = "client",fetch = FetchType.LAZY)
 	private Collection<TicketResa>ticketResas;
-	
 	
 	public String getNom() {
 		return nom;
 	}
 
-
-
-
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-
-
-
 
 	public String getPrenom() {
 		return prenom;
 	}
 
-
-
-
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-
-
-
 
 	public Collection<TicketResa> getTicketResas() {
 		return ticketResas;
 	}
 
-
-
-
 	public void setTicketResas(Collection<TicketResa> ticketResas) {
 		this.ticketResas = ticketResas;
 	}
-
-
 
 	//no use of lombok
 	public Client(Long idUser, String email, String password, String numTel, String adresse, Authority authority,

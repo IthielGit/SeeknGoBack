@@ -9,7 +9,8 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
-@Data @AllArgsConstructor @NoArgsConstructor
+@Data @AllArgsConstructor 
+@NoArgsConstructor
 @Table(name = "CategoriePrestation")
 public class CategoriePrestation implements Serializable{
 

@@ -1,4 +1,8 @@
 package com.seekngo.repository;
 
-public interface CategoriePrestationRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.seekngo.entities.CategoriePrestation;
+
+public interface CategoriePrestationRepository extends CrudRepository<CategoriePrestation, Long> {
 }

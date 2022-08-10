@@ -12,27 +12,31 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
-
-
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
 @DiscriminatorValue("Partenaire")
 public class Partenaire extends User{
 	@Column(length = 30, nullable = true)
 	private String numNif;
+	
 	@Column(length = 30, nullable = true)
 	private String numStat;
+	
 	@Column(length = 30, nullable = true)
 	private String numRcs;
+	
 	@Column(nullable = true)
 	@OneToMany(mappedBy = "partenaire")
 	private Collection<TicketResa>ticketResas;
+	
 	@Column( nullable = true)
 	@OneToMany(mappedBy = "partenaire")
 	private Collection<Prestation>prestations;
+	
 	@Column(nullable = true)
 	@OneToMany(mappedBy = "partenaire")
 	private Collection<FactureAbnmt>factureAbnmts;
+	
 	public Partenaire(Long idUser, String email, String password, String numTel, String adresse, Authority authority,
 			String numNif, String numStat, String numRcs, Collection<TicketResa> ticketResas,
 			Collection<Prestation> prestations, Collection<FactureAbnmt> factureAbnmts) {
