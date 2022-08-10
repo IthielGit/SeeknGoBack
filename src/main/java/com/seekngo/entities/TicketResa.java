@@ -7,6 +7,7 @@ import java.util.Collection;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -35,14 +36,17 @@ public class TicketResa implements Serializable {
 	private Collection<Prestation> prestations;
 	
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name = "ID_CLIENT", nullable = true)
 	private Client client;
 	
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name = "ID_PARTENAIRE", nullable = true)
 	private Partenaire partenaire;
 	
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name="ID_FACTURE", nullable = true)
 	private FactureAbnmt factureAbnmt;
 	

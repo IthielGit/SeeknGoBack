@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,6 +30,7 @@ public class Client extends User{
 	private String prenom;
 	
 	@Column(nullable = true)
+	@JsonIgnore
 	@OneToMany(mappedBy = "client",fetch = FetchType.LAZY)
 	private Collection<TicketResa>ticketResas;
 	

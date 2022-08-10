@@ -5,6 +5,7 @@ import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
@@ -26,15 +27,15 @@ public class Partenaire extends User{
 	private String numRcs;
 	
 	@Column(nullable = true)
-	@OneToMany(mappedBy = "partenaire")
+	@OneToMany(mappedBy = "partenaire",fetch = FetchType.LAZY)
 	private Collection<TicketResa>ticketResas;
 	
 	@Column( nullable = true)
-	@OneToMany(mappedBy = "partenaire")
+	@OneToMany(mappedBy = "partenaire",fetch = FetchType.LAZY)
 	private Collection<Prestation>prestations;
 	
 	@Column(nullable = true)
-	@OneToMany(mappedBy = "partenaire")
+	@OneToMany(mappedBy = "partenaire",fetch = FetchType.LAZY)
 	private Collection<FactureAbnmt>factureAbnmts;
 	
 	public Partenaire(Long idUser, String email, String password, String numTel, String adresse, Authority authority,

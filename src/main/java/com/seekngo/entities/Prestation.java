@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Collection;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,6 +15,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -45,18 +48,21 @@ public class Prestation implements Serializable {
 	@Column(name="PROFILE_PRESTATION", nullable = true)
 	private byte[] imagePrestation;
 	
-	@Column(nullable = true)
-	private String profileImageUrl;
+//	@Column(nullable = true)
+//	private String profileImageUrl;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	@JsonIgnore
 	@JoinColumn(name="ID_RESERVATION", nullable = true)
 	private TicketResa ticketResa;
 	
-	@ManyToOne 
+	@ManyToOne (fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	@JsonIgnore
 	@JoinColumn(name="PROVINCE_NAME", nullable = false)
 	private Province province;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	@JsonIgnore
 	@JoinColumn(name="CATEGORY_NAME", nullable = false)
 	private CategoriePrestation categoriePrestation;
 	
@@ -64,8 +70,9 @@ public class Prestation implements Serializable {
 	@OneToMany(mappedBy = "prestation")
 	private Collection<Planning> plannings;
 
-	@ManyToOne
-	@JoinColumn(name="ID_ACTIVITY_OWNER", nullable = true)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonIgnore
+	@JoinColumn(name="ID_ACTIVITY_OWNER", nullable = true, referencedColumnName = "idUser")
 	private Partenaire partenaire;
 	
 	

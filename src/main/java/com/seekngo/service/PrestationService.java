@@ -31,14 +31,14 @@ public class PrestationService {
 		prestation.setProvince(p.getProvince());
 		prestation.setCategoriePrestation(p.getCategoriePrestation());
 		
-		String imagePath = p.getProfileImageUrl();
-		File file = new File(imagePath);
-		byte[] picInBytes = new byte[(int) file.length()];
-	    FileInputStream fileInputStream = new FileInputStream(file);
-	    fileInputStream.read(picInBytes);
-	    fileInputStream.close();
-	    prestation.setImagePrestation(picInBytes);
-	    
+//		String imagePath = p.getProfileImageUrl();
+//		File file = new File(imagePath);
+//		byte[] picInBytes = new byte[(int) file.length()];
+//	    FileInputStream fileInputStream = new FileInputStream(file);
+//	    fileInputStream.read(picInBytes);
+//	    fileInputStream.close();
+//	    prestation.setImagePrestation(picInBytes);
+//	    
 		prestationRepository.save(prestation);
 	}
 
@@ -55,13 +55,13 @@ public class PrestationService {
 		prestation.setProvince(p.getProvince());
 		prestation.setCategoriePrestation(p.getCategoriePrestation());
 		
-		String imagePath = p.getProfileImageUrl();
-		File file = new File(imagePath);
-		byte[] picInBytes = new byte[(int) file.length()];
-	    FileInputStream fileInputStream = new FileInputStream(file);
-	    fileInputStream.read(picInBytes);
-	    fileInputStream.close();
-	    prestation.setImagePrestation(picInBytes);
+//		String imagePath = p.getProfileImageUrl();
+//		File file = new File(imagePath);
+//		byte[] picInBytes = new byte[(int) file.length()];
+//	    FileInputStream fileInputStream = new FileInputStream(file);
+//		fileInputStream.read(picInBytes);
+//	    fileInputStream.close();
+//	    prestation.setImagePrestation(picInBytes);
 	    
 		prestationRepository.save(prestation);
 	}
