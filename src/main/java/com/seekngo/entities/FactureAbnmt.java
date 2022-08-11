@@ -34,9 +34,14 @@ public class FactureAbnmt implements Serializable{
 	@Column(length = 30, nullable = true)
 	private double netaPayer;
 	
-	@Column(length = 30, nullable = true)
-	@OneToMany(mappedBy = "factureAbnmt",fetch = FetchType.LAZY)
-	private Collection<TicketResa>ticketResas;
+//	@Column(length = 30, nullable = true)
+//	@OneToMany(mappedBy = "factureAbnmt",fetch = FetchType.LAZY)
+//	private Collection<TicketResa>ticketResas;
+	
+	@ManyToOne
+	@JsonIgnore
+	@JoinColumn(name="ID_TICKET", nullable = true)
+	private TicketResa ticketResa;
 	
 	@ManyToOne
 	@JsonIgnore

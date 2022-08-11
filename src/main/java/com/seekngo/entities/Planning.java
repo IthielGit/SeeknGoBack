@@ -41,12 +41,16 @@ public class Planning implements Serializable{
 	@Column(length = 30, nullable = true)
 	private String uniteDeComptage;
 	
+	
+		
 	@Column(length = 30, nullable = true)
 	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date datePlanning;
 	
 	@Column(nullable = true)
 	private String heureDispos;
+	
+	
 	
 	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	@JsonIgnore

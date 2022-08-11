@@ -1,4 +1,5 @@
 package com.seekngo;
+import java.util.Date;
 import java.util.logging.LogManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +14,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.seekngo.entities.Admin;
 import com.seekngo.entities.Client;
 import com.seekngo.entities.Partenaire;
+import com.seekngo.entities.TicketResa;
 import com.seekngo.entities.User;
 import com.seekngo.repository.AdminRepository;
 import com.seekngo.repository.ClientRepository;
 import com.seekngo.repository.UserRepository;
+import com.seekngo.service.TicketResaService;
 
 @SpringBootApplication
 public class SeeknGoBackApplication implements CommandLineRunner {
@@ -24,6 +27,9 @@ public class SeeknGoBackApplication implements CommandLineRunner {
 	private UserRepository userRepository;
 	@Autowired
 	private AdminRepository adminRepository;
+	
+	@Autowired
+	private TicketResaService ticketResaService;
 	
 	
 	public static void main(String[] args) {
@@ -41,6 +47,12 @@ public class SeeknGoBackApplication implements CommandLineRunner {
 //				new Client(null, "rabe@gmail.com", "passe", "0000012", "Lot 1235", null, "RAndria", "Njaka", null));
 //		User partnerUser4  = userRepository.save(
 //				new Partenaire(null, "partner@gmail.com", "passe", "032", "Lot 415", null, "nif 000", "stat000", "rcs 000", null, null, null));
+//		
+//		TicketResa resa1 = ticketResaService.saveReservation(
+//				new TicketResa(null, new Date(), "", "", 25000, null, null, null, null)
+//				);
+		
+		
 	}
 	
 	

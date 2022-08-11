@@ -51,10 +51,10 @@ public class Prestation implements Serializable {
 //	@Column(nullable = true)
 //	private String profileImageUrl;
 	
-	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-	@JsonIgnore
-	@JoinColumn(name="ID_RESERVATION", nullable = true)
-	private TicketResa ticketResa;
+//	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+//	@JsonIgnore
+//	@JoinColumn(name="ID_RESERVATION", nullable = true)
+//	private TicketResa ticketResa;
 	
 	@ManyToOne (fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	@JsonIgnore
@@ -66,9 +66,9 @@ public class Prestation implements Serializable {
 	@JoinColumn(name="CATEGORY_NAME", nullable = false)
 	private CategoriePrestation categoriePrestation;
 	
-	@Column(length = 30, nullable = true)
-	@OneToMany(mappedBy = "prestation")
-	private Collection<Planning> plannings;
+//	@Column(length = 30, nullable = true)
+//	@OneToMany(mappedBy = "prestation")
+//	private Collection<Planning> plannings;
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JsonIgnore

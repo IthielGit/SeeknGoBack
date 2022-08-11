@@ -29,10 +29,10 @@ public class Client extends User{
 	@Column(length = 30, nullable = true)
 	private String prenom;
 	
-	@Column(nullable = true)
-	@JsonIgnore
-	@OneToMany(mappedBy = "client",fetch = FetchType.LAZY)
-	private Collection<TicketResa>ticketResas;
+//	@Column(nullable = true)
+//	@JsonIgnore
+//	@OneToMany(mappedBy = "client",fetch = FetchType.LAZY)
+//	private Collection<TicketResa>ticketResas;
 	
 	public String getNom() {
 		return nom;
@@ -50,13 +50,7 @@ public class Client extends User{
 		this.prenom = prenom;
 	}
 
-	public Collection<TicketResa> getTicketResas() {
-		return ticketResas;
-	}
 
-	public void setTicketResas(Collection<TicketResa> ticketResas) {
-		this.ticketResas = ticketResas;
-	}
 
 	//no use of lombok
 	public Client(Long idUser, String email, String password, String numTel, String adresse, Authority authority,
@@ -64,7 +58,6 @@ public class Client extends User{
 		super(idUser, email, password, numTel, adresse, authority);
 		this.nom = nom;
 		this.prenom = prenom;
-		this.ticketResas = ticketResas;
 	}
 	
 
