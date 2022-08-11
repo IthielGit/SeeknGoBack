@@ -7,6 +7,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.TypeDef;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -19,6 +21,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="ReservationTicket")
 @Data @NoArgsConstructor @AllArgsConstructor
+
 public class TicketResa implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,6 +39,12 @@ public class TicketResa implements Serializable {
 //	@OneToMany(mappedBy = "ticketResa")	
 //	private List<Prestation> prestations;
 	
+	@Column(length = 30, nullable = true)
+	@JsonFormat(pattern="yyyy-MM-dd")
+	private Date date;
+	
+	@Column(nullable = true)
+	private String heure;
 	
 	@ManyToOne
 	@JsonIgnore
@@ -47,9 +56,11 @@ public class TicketResa implements Serializable {
 //	@JoinColumn(name = "ID_PLANNING", nullable = true)
 //	private Planning planning;
 	
-	@Column(length = 30, nullable = true)
-	@OneToMany(fetch = FetchType.LAZY)
-	private List<Planning> plannings;
+//	@Column(length = 30, nullable = true)
+//	@OneToMany(fetch = FetchType.LAZY)
+//	private List<Planning> plannings;
+	
+	 
 		
 	
 	@ManyToOne
