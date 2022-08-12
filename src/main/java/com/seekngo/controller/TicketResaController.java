@@ -2,6 +2,7 @@ package com.seekngo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,6 +27,8 @@ public class TicketResaController {
 		return ticketResaService.listTicket();
 	}
 	
+	
+	
 	@PostMapping("/save")
 	private long save(@RequestBody TicketResa ticketResa) {
 //		System.out.println(TicketResa.getName());
@@ -33,12 +36,24 @@ public class TicketResaController {
 		return ticketResa.getIdTicketResa();
 	}
 	
-	@RequestMapping("/ticketresa/{id}")
+	
+	@PutMapping("/update")
+	private long update(@RequestBody TicketResa ticketResa) {
+//		System.out.println(TicketResa.getName());
+		ticketResaService.saveReservation(ticketResa);
+		return ticketResa.getIdTicketResa();
+	}
+	
+	
+	
+	
+	
+	@GetMapping("/ticketresa/{id}")
 	private TicketResa getTicketResa(@PathVariable(name = "id") int TicketResaID) {
 		return ticketResaService.getTicketResaByID(TicketResaID);
 	}
 	
-	@PutMapping("/delete/{id}")
+	@DeleteMapping("/delete/{id}")
 	private void deleteTicketResa(@PathVariable("id") int id) {
 		System.out.println(id);
 		ticketResaService.deleteReservation(id);

@@ -66,9 +66,6 @@ public class Prestation implements Serializable {
 	@JoinColumn(name="CATEGORY_NAME", nullable = false)
 	private CategoriePrestation categoriePrestation;
 	
-//	@Column(length = 30, nullable = true)
-//	@OneToMany(mappedBy = "prestation")
-//	private Collection<Planning> plannings;
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JsonIgnore

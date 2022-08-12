@@ -14,12 +14,12 @@ import com.seekngo.service.UserService;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/user")
 public class UserController {
 	@Autowired
 	private UserService userService; 
 	
-	@GetMapping("/userlist")
+	@GetMapping("/list")
 	public Iterable<User> getUser(){
 		return userService.listAll();
 	}
@@ -30,9 +30,16 @@ public class UserController {
 		userService.saveUser(user);
 		return user.getIdUser();
 	}
+		
+	@PutMapping("/update")
+	public void update(@RequestBody User user) {
+		userService.saveUser(user);
+	}
 	
-	@RequestMapping("/user/{id}")
+	
+	@RequestMapping("/{id}")
 	private User getUser(@PathVariable(name = "id") int userID) {
+		System.out.println("get single user...");
 		return userService.getUserByID(userID);
 	}
 	
@@ -41,5 +48,8 @@ public class UserController {
 		System.out.println(id);
 		userService.deleteUser(id);
 	}
+	
+
+	
 	
 }

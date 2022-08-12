@@ -37,7 +37,7 @@ public class Partenaire extends User{
 	@Column(nullable = true)
 	@OneToMany(mappedBy = "partenaire",fetch = FetchType.LAZY)
 	private Collection<FactureAbnmt>factureAbnmts;
-	
+
 	public Partenaire(Long idUser, String email, String password, String numTel, String adresse, Authority authority,
 			String numNif, String numStat, String numRcs, Collection<TicketResa> ticketResas,
 			Collection<Prestation> prestations, Collection<FactureAbnmt> factureAbnmts) {
