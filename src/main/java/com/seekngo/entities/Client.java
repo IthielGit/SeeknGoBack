@@ -23,6 +23,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @DiscriminatorValue("Client")
 public class Client extends User{
+	public Client(Long idUser, String email, String password, String numTel, String adresse, Authority authority,
+			String nom, String prenom) {
+		super(idUser, email, password, numTel, adresse, authority);
+		this.nom = nom;
+		this.prenom = prenom;
+	}
+
 	@Column(length = 30, nullable =true)
 	private String nom;
 	
@@ -47,16 +54,6 @@ public class Client extends User{
 	}
 
 	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
-
-
-
-	//no use of lombok
-	public Client(Long idUser, String email, String password, String numTel, String adresse, Authority authority,
-			String nom, String prenom, Collection<TicketResa> ticketResas) {
-		super(idUser, email, password, numTel, adresse, authority);
-		this.nom = nom;
 		this.prenom = prenom;
 	}
 	

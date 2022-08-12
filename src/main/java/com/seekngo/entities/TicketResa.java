@@ -28,6 +28,7 @@ public class TicketResa implements Serializable {
 	private Long idTicketResa;
 	
 	@JsonFormat(pattern="yyyy-MM-dd")
+	@Temporal(TemporalType.DATE)
 	private Date creationTicketDate;
 	
 	private String statutTicket;
@@ -39,8 +40,10 @@ public class TicketResa implements Serializable {
 //	@OneToMany(mappedBy = "ticketResa")	
 //	private List<Prestation> prestations;
 	
+	
 	@Column(length = 30, nullable = true)
 	@JsonFormat(pattern="yyyy-MM-dd")
+	@Temporal(TemporalType.DATE)
 	private Date date;
 	
 	@Column(nullable = true)
@@ -50,6 +53,7 @@ public class TicketResa implements Serializable {
 	@JsonIgnore
 	@JoinColumn(name = "ID_PRESTATION", nullable = true)
 	private Prestation prestation;
+	
 	
 //	@ManyToOne
 //	@JsonIgnore

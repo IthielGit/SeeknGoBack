@@ -20,6 +20,10 @@ public class TicketResaService  {
 		return ticketResaRepository.findAll();
 	}
 	
+//	public List<TicketResa>listByPartenaire(int id){
+//		return ticketResaRepository.findByPartenaire(id);
+//	}
+	
 	public TicketResa saveReservation(TicketResa ticketResa) {
 		return ticketResaRepository.save(ticketResa);
 	}

@@ -1,5 +1,6 @@
 package com.seekngo;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.LogManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import com.seekngo.entities.TicketResa;
 import com.seekngo.entities.User;
 import com.seekngo.repository.AdminRepository;
 import com.seekngo.repository.ClientRepository;
+import com.seekngo.repository.TicketResaRepository;
 import com.seekngo.repository.UserRepository;
 import com.seekngo.service.TicketResaService;
 
@@ -29,7 +31,7 @@ public class SeeknGoBackApplication implements CommandLineRunner {
 	private AdminRepository adminRepository;
 	
 	@Autowired
-	private TicketResaService ticketResaService;
+	private TicketResaRepository ticketResaRepository;
 	
 	
 	public static void main(String[] args) {
@@ -53,6 +55,7 @@ public class SeeknGoBackApplication implements CommandLineRunner {
 //				);
 		
 		
+
 	}
 	
 	
